@@ -142,6 +142,15 @@ export default function PagePrincipale() {
     },
   ];
 
+  const e5Documents = [
+    {
+      id: "tableau-synthese-e5",
+      title: "Tableau de synthese E5",
+      description: "Annexe 6-1 regroupant les realisations presentees pour l'epreuve E5 du BTS SIO.",
+      href: "/documents-e5/tableau-synthese-e5.pdf",
+    },
+  ];
+
   const projetsCours = [
     {
       id: 1,
@@ -183,6 +192,37 @@ export default function PagePrincipale() {
             <li>Un <strong>tableau de synthèse</strong> récapitulant l&apos;ensemble des réalisations présentées dans le portfolio.</li>
             <li>Les <strong>attestations de stage</strong> ou certificats de travail.</li>
           </ul>
+          <details className="stage-documents">
+            <summary className="stage-documents-summary">
+              <div>
+                <span className="stage-documents-kicker">Document E5</span>
+                <span className="stage-documents-title">Tableau de synthese telechargeable</span>
+              </div>
+              <span className="stage-documents-hint">Afficher le PDF</span>
+            </summary>
+            <div className="stage-documents-body">
+              <p className="stage-documents-intro">
+                Document annexe associe a l'epreuve E5, accessible en consultation ou telechargement.
+              </p>
+              <div className="stage-documents-grid">
+                {e5Documents.map((document) => (
+                  <a
+                    key={document.id}
+                    href={document.href}
+                    download
+                    className="stage-document-card"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="stage-document-type">PDF</span>
+                    <span className="stage-document-name">{document.title}</span>
+                    <span className="stage-document-desc">{document.description}</span>
+                    <span className="stage-document-link">Telecharger</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </details>
         </>
       ),
     },
